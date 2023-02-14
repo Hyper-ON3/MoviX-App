@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--App Logo View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="AppLogoViewController" id="BYZ-38-t0r" customClass="AppLogoViewController" customModule="Movix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="My project-3" translatesAutoresizingMaskIntoConstraints="NO" id="fdT-dd-XJk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-XB-L23" customClass="GradientView" customModule="Movix" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2iq-4m-1ah" userLabel="Logo Stack">
+                                <rect key="frame" x="65" y="237.33333333333334" width="245" height="337.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MoviX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vda-sG-f8m" customClass="CLTypingLabel" customModule="CLTypingLabel">
+                                        <rect key="frame" x="0.0" y="0.0" width="245" height="102.66666666666667"/>
+                                        <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="84"/>
+                                        <color key="textColor" red="1" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r94-lw-vg2" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="117.66666666666666" width="245" height="219.99999999999997"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="245" id="Y65-3P-EbD"/>
+                                            <constraint firstAttribute="height" constant="220" id="qLj-p9-Y5b"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="movieLogo"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r94-lw-vg2" secondAttribute="trailing" id="AvL-tL-SRc"/>
+                                    <constraint firstItem="vda-sG-f8m" firstAttribute="top" secondItem="2iq-4m-1ah" secondAttribute="top" id="FT5-kD-QVj"/>
+                                    <constraint firstItem="r94-lw-vg2" firstAttribute="leading" secondItem="2iq-4m-1ah" secondAttribute="leading" id="KA8-WG-8Lu"/>
+                                    <constraint firstItem="vda-sG-f8m" firstAttribute="leading" secondItem="2iq-4m-1ah" secondAttribute="leading" id="Zy6-rw-oXP"/>
+                                    <constraint firstAttribute="trailing" secondItem="vda-sG-f8m" secondAttribute="trailing" id="tIi-t2-MlF"/>
+                                    <constraint firstAttribute="bottom" secondItem="r94-lw-vg2" secondAttribute="bottom" id="z4R-hJ-Wrv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fdT-dd-XJk" secondAttribute="bottom" id="0hy-PW-GQS"/>
+                            <constraint firstAttribute="bottom" secondItem="FBf-XB-L23" secondAttribute="bottom" id="Dgc-as-OYf"/>
+                            <constraint firstItem="fdT-dd-XJk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NaM-K0-x23"/>
+                            <constraint firstItem="FBf-XB-L23" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qrj-Ge-4LA"/>
+                            <constraint firstItem="FBf-XB-L23" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bRH-yB-TrQ"/>
+                            <constraint firstItem="fdT-dd-XJk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pzW-wz-sBf"/>
+                            <constraint firstItem="2iq-4m-1ah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rAm-vO-nam"/>
+                            <constraint firstItem="2iq-4m-1ah" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="v9A-Ok-gtT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FBf-XB-L23" secondAttribute="trailing" id="wPn-DH-eg6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fdT-dd-XJk" secondAttribute="trailing" id="whq-a1-lsr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animation" destination="r94-lw-vg2" id="cHi-QW-yBP"/>
+                        <outlet property="appNameLabel" destination="vda-sG-f8m" id="HM5-gi-meY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.799999999999997" y="-34.729064039408868"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="r94-lw-vg2"/>
+        <designable name="vda-sG-f8m"/>
+    </designables>
+    <resources>
+        <image name="My project-3" width="1080" height="1920"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
