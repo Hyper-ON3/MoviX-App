@@ -147,6 +147,8 @@ class HomeViewController: UIViewController, Storyboarded {
     }
 }
 
+//MARK: - Extensions
+
 extension HomeViewController {
     
     func dataSourse() -> RxTableViewSectionedReloadDataSource<FilmsCategory> {

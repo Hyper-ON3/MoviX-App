@@ -405,7 +405,7 @@
 			children = (
 				F452940D2970378500A8EAFF /* ServiceManager.swift */,
 				F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */,
-				F49D363D298D3175003F2779 /* DataBaseManager.swift */,
+				F492608D299CCD21001593D7 /* Data Base */,
 				F49D3641298D459F003F2779 /* Repository.swift */,
 				F42789DA299395F800CA6A1D /* NetworkCheck.swift */,
 			);
@@ -629,6 +629,14 @@
 				F491AA032987DD2E000EC50E /* AuthEndpoint.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		F492608D299CCD21001593D7 /* Data Base */ = {
+			isa = PBXGroup;
+			children = (
+				F49D363D298D3175003F2779 /* DataBaseManager.swift */,
+			);
+			path = "Data Base";
 			sourceTree = "<group>";
 		};
 		F496BB3D298BB500000020C4 /* Favorites Module */ = {

@@ -34,7 +34,7 @@
                             </constraints>
                             <color key="tintColor" systemColor="systemPinkColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="love"/>
+                            <state key="normal" image="favorites"/>
                             <connections>
                                 <action selector="toolBarButtonsTapped:" destination="-1" eventType="touchUpInside" id="ijY-B5-c5S"/>
                             </connections>
@@ -47,7 +47,7 @@
                             </constraints>
                             <color key="tintColor" systemColor="systemPinkColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="zoom"/>
+                            <state key="normal" image="search"/>
                             <connections>
                                 <action selector="toolBarButtonsTapped:" destination="-1" eventType="touchUpInside" id="adU-6v-Zmm"/>
                             </connections>
@@ -95,9 +95,9 @@
     </objects>
     <resources>
         <image name="32342342" width="612" height="252"/>
+        <image name="favorites" width="512" height="512"/>
         <image name="home" width="512" height="512"/>
-        <image name="love" width="512" height="512"/>
-        <image name="zoom" width="512" height="512"/>
+        <image name="search" width="512" height="512"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
