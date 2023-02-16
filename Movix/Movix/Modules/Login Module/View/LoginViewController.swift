@@ -29,12 +29,6 @@ class LoginViewController: UIViewController, Storyboarded {
         configureUI()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        coordinator?.didFinishLogin()
-    }
-
     //MARK: - UI Configuration functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

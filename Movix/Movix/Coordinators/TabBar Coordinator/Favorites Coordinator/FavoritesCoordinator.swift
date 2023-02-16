@@ -24,6 +24,15 @@ class FavoritesCoordinator: Coordinator {
         navigationController.setViewControllerWithAnimation(viewController: vc)
     }
     
+    func goToDetails(with id: Int) {
+        
+        let child = DetailsCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.id = id
+        childCoordinators.append(child)
+        child.start()
+    }
+    
     func didFinishFavorites() {
         parentCoordinator?.childDidFinish(self)
     }

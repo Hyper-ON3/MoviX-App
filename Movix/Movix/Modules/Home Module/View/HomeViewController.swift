@@ -15,7 +15,6 @@ import Network
 
 class HomeViewController: UIViewController, Storyboarded {
 
-    @IBOutlet weak var customToolBar: CustomToolBar!
     @IBOutlet weak var genresCollectionView: UICollectionView!
     @IBOutlet weak var filmsTableView: UITableView!
     @IBOutlet weak var greetingLabel: UILabel!
@@ -23,21 +22,27 @@ class HomeViewController: UIViewController, Storyboarded {
     @IBOutlet weak var noInternetLabel: UILabel!
     @IBOutlet weak var noInternetAnimationView: LottieAnimationView!
     
-    weak var coordinator: HomeCoordinator?
+    var coordinator: HomeCoordinator?
     private let disposeBag = DisposeBag()
     var homeViewModel: HomeViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        bindCollectionView()
+        bindTableView()
+        bindUserDetails()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         homeViewModel?.checkNetworkStatus(completion: { status in
             if status == true {
                 self.homeViewModel?.getAccountDetails()
                 self.configureUI()
             } else {
                 self.noInternetAnimation(animated: true)
-                self.customToolBar.delegate = self
-                self.customToolBar.configureElements()
             }
         })
     }
@@ -51,16 +56,9 @@ class HomeViewController: UIViewController, Storyboarded {
         noInternetAnimationView.isHidden = true
         self.noInternetLabel.isHidden = true
                 
-        filmsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-    
-        customToolBar.delegate = self
-        customToolBar.configureElements()
-        
+        //filmsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+
         homeViewModel?.getGenres()
-        
-        bindCollectionView()
-        bindTableView()
-        bindUserDetails()
     }
     
     //MARK: - Animation functions
@@ -107,8 +105,7 @@ class HomeViewController: UIViewController, Storyboarded {
             .drive(onNext: { [weak self] genre in
             guard let self else { return }
             
-            self.coordinator?.parentCoordinator?.goToFilmsByGenre(with: genre)
-            
+                self.coordinator?.goToFilmsByGenre(with: genre)
         }).disposed(by: disposeBag)
     }
     
@@ -148,7 +145,6 @@ class HomeViewController: UIViewController, Storyboarded {
 }
 
 //MARK: - Extensions
-
 extension HomeViewController {
     
     func dataSourse() -> RxTableViewSectionedReloadDataSource<FilmsCategory> {
@@ -176,8 +172,7 @@ extension HomeViewController {
                 .drive(onNext: { [weak self] info in
                 guard let self else { return }
                 
-                self.coordinator?.parentCoordinator?.goToDetails(with: info.id)
-                
+                    self.coordinator?.goToDetails(with: info.id)
             }).disposed(by: cell.disposeBag)
             
             return cell
@@ -187,20 +182,5 @@ extension HomeViewController {
             return dataSourse.sectionModels[index].header
             
         })
-    }
-}
-
-extension HomeViewController: CustomToolBarDelegate {
-    
-    func toolBarButtonsPressed(tag: Int) {
-        switch tag {
-        case 1:
-            coordinator?.parentCoordinator?.goTo(screen: .search)
-            coordinator?.didFinishHome()
-        case 2:
-            coordinator?.parentCoordinator?.goTo(screen: .favorites)
-            coordinator?.didFinishHome()
-        default: return
-        }
     }
 }

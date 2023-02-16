@@ -14,11 +14,10 @@ import Lottie
 class FavoritesViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var favoritesTableView: UITableView!
-    @IBOutlet weak var customToolBar: CustomToolBar!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var emptyAnimationView: LottieAnimationView!
     
-    weak var coordinator: FavoritesCoordinator?
+    var coordinator: FavoritesCoordinator?
     var favoritesViewModel: FavoritesViewModelProtocol?
     private let disposeBag = DisposeBag()
     
@@ -26,6 +25,14 @@ class FavoritesViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        favoritesViewModel?.loadFavoriteMovies()
+        favoritesViewModel?.getMovieListData()
+        
     }
     //MARK: - UI Configuration functions
     
@@ -38,9 +45,6 @@ class FavoritesViewController: UIViewController, Storyboarded {
         
         favoritesTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         favoritesTableView.delegate = self
-        
-        customToolBar.delegate = self
-        customToolBar.configureElements()
         
         bindTableView()
     }
@@ -96,7 +100,8 @@ class FavoritesViewController: UIViewController, Storyboarded {
             .drive(onNext: { [weak self] value in
                 guard let self else { return }
                 
-                self.coordinator?.parentCoordinator?.goToDetails(with: value.id)
+                //self.coordinator?.parentCoordinator?.goToDetails(with: value.id)
+                self.coordinator?.goToDetails(with: value.id)
             }).disposed(by: disposeBag)
         
         // Notifies which object in has been deleted in the TableView
@@ -125,17 +130,3 @@ extension FavoritesViewController: UITableViewDelegate {
     }
 }
 
-extension FavoritesViewController: CustomToolBarDelegate {
-    
-    func toolBarButtonsPressed(tag: Int) {
-        switch tag {
-        case 0:
-            coordinator?.parentCoordinator?.goTo(screen: .home)
-            coordinator?.didFinishFavorites()
-        case 1:
-            coordinator?.parentCoordinator?.goTo(screen: .search)
-            coordinator?.didFinishFavorites()
-        default: return
-        }
-    }
-}

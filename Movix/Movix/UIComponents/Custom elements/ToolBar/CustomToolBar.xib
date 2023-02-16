@@ -95,9 +95,9 @@
     </objects>
     <resources>
         <image name="32342342" width="612" height="252"/>
-        <image name="favorites" width="512" height="512"/>
-        <image name="home" width="512" height="512"/>
-        <image name="search" width="512" height="512"/>
+        <image name="favorites" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
+        <image name="search" width="32" height="32"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsCoordinator: Coordinator {
     
-    var parentCoordinator: MainCoordinator?
+    var parentCoordinator: Coordinator?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     

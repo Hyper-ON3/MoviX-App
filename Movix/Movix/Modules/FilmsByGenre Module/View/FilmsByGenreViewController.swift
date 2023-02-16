@@ -14,7 +14,7 @@ class FilmsByGenreViewController: UIViewController, Storyboarded {
     @IBOutlet weak var filmsTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    weak var coordinator: FilmsByGenreCoordinator?
+    var coordinator: FilmsByGenreCoordinator?
     var filmsViewModel: FilmsByGenreProtocol?
     private let disposeBag = DisposeBag()
 
@@ -22,6 +22,12 @@ class FilmsByGenreViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        coordinator?.didFinishFilms()
     }
 
     //MARK: - UI Configuration functions

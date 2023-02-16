@@ -23,8 +23,25 @@ class HomeCoordinator: Coordinator {
         navigationController.setViewControllerWithAnimation(viewController: vc)
     }
     
-    func didFinishHome() {
-        parentCoordinator?.childDidFinish(self)
+    func goToFilmsByGenre(with info: GenreList) {
+        
+        let child = FilmsByGenreCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.info = info
+        childCoordinators.append(child)
+        child.start()
     }
     
+    func goToDetails(with id: Int) {
+        
+        let child = DetailsCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        child.id = id
+        childCoordinators.append(child)
+        child.start()
+    }
+
+    func didFinishHome() {
+        parentCoordinator?.childDidFinish(self)
+    }    
 }

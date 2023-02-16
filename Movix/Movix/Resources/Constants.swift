@@ -52,6 +52,15 @@ struct K {
         
         static let noImage = "noImage"
         static let checkImage = "check"
+        
+        static let home = "home"
+        static let homeSelected = "homeSelected"
+        static let search = "search"
+        static let searchSelected = "searchSelected"
+        static let favorites = "favorites"
+        static let favoritesSelected = "favoritesSelected"
+        
+        
     }
     
     enum HTTPHeaderField: String {

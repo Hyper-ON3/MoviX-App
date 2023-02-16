@@ -66,6 +66,7 @@
 		F491A9FA2987C98C000EC50E /* MoviesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491A9F92987C98C000EC50E /* MoviesClient.swift */; };
 		F491AA042987DD2E000EC50E /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491AA032987DD2E000EC50E /* AuthEndpoint.swift */; };
 		F491AA062987E1ED000EC50E /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491AA052987E1ED000EC50E /* AuthClient.swift */; };
+		F4926091299CD992001593D7 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4926090299CD992001593D7 /* TabBarCoordinator.swift */; };
 		F496BB42298BB56D000020C4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496BB41298BB56D000020C4 /* FavoritesViewController.swift */; };
 		F496BB44298BB576000020C4 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F496BB43298BB576000020C4 /* Favorites.storyboard */; };
 		F496BB46298BB5D3000020C4 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F496BB45298BB5D3000020C4 /* FavoritesCoordinator.swift */; };
@@ -80,6 +81,7 @@
 		F49D3642298D459F003F2779 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D3641298D459F003F2779 /* Repository.swift */; };
 		F4ADDE6D298AB10C007BDF28 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F4ADDE6C298AB10C007BDF28 /* loading.json */; };
 		F4C1F294297AE4350083DEDD /* GradientForDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C1F293297AE4350083DEDD /* GradientForDetailsView.swift */; };
+		F4C8F336299E617D009E1883 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8F335299E617D009E1883 /* CustomTabBarViewController.swift */; };
 		F4D3FDCC29891C9500C686F8 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */; };
 		F4D3FDCF2989346900C686F8 /* LogoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3FDCE2989346900C686F8 /* LogoViewModel.swift */; };
 		F4F3221F297FCCBA002059C7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F3221E297FCCBA002059C7 /* Search.storyboard */; };
@@ -171,6 +173,7 @@
 		F491A9F92987C98C000EC50E /* MoviesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesClient.swift; sourceTree = "<group>"; };
 		F491AA032987DD2E000EC50E /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		F491AA052987E1ED000EC50E /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
+		F4926090299CD992001593D7 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		F496BB41298BB56D000020C4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F496BB43298BB576000020C4 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		F496BB45298BB5D3000020C4 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		F49D3641298D459F003F2779 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F4ADDE6C298AB10C007BDF28 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		F4C1F293297AE4350083DEDD /* GradientForDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientForDetailsView.swift; sourceTree = "<group>"; };
+		F4C8F335299E617D009E1883 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F4D3FDCE2989346900C686F8 /* LogoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewModel.swift; sourceTree = "<group>"; };
 		F4F3221E297FCCBA002059C7 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -384,9 +388,9 @@
 			isa = PBXGroup;
 			children = (
 				F45294052970333F00A8EAFF /* Coordinator.swift */,
-				F40AE5B92971539F004C70EC /* MainCoordinator.swift */,
 				F45A9DB8297171080040B16D /* Storyboarded.swift */,
-				F45A9DBE29717D5B0040B16D /* Child Coordinators */,
+				F4C8F332299E425C009E1883 /* Main Coordinator */,
+				F4C8F331299E4225009E1883 /* TabBar Coordinator */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -404,10 +408,9 @@
 			isa = PBXGroup;
 			children = (
 				F452940D2970378500A8EAFF /* ServiceManager.swift */,
-				F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */,
+				F492608E299CD72A001593D7 /* Keychain */,
 				F492608D299CCD21001593D7 /* Data Base */,
-				F49D3641298D459F003F2779 /* Repository.swift */,
-				F42789DA299395F800CA6A1D /* NetworkCheck.swift */,
+				F492608F299CD736001593D7 /* Repository */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -438,19 +441,6 @@
 				F48764DA297E87E7000CDB70 /* GetTrailerModel.swift */,
 			);
 			path = "Movie Models";
-			sourceTree = "<group>";
-		};
-		F45A9DBE29717D5B0040B16D /* Child Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				F45A9DBA297177EF0040B16D /* LoginCoordinator.swift */,
-				F45A9DBC29717AC10040B16D /* HomeCoordinator.swift */,
-				F461221729758485001D3BA3 /* FilmsByGenreCoordinator.swift */,
-				F4405582297AC127005E8C9E /* DetailsCoordinator.swift */,
-				F4F32225297FD07A002059C7 /* SearchCoordinator.swift */,
-				F496BB45298BB5D3000020C4 /* FavoritesCoordinator.swift */,
-			);
-			path = "Child Coordinators";
 			sourceTree = "<group>";
 		};
 		F45A9DBF297187620040B16D /* Modules */ = {
@@ -580,6 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				F491A9F42987C0D0000EC50E /* APIConfiguration.swift */,
+				F42789DA299395F800CA6A1D /* NetworkCheck.swift */,
 				F452940F2970549B00A8EAFF /* Authentication */,
 				F46121FE29754704001D3BA3 /* Movies */,
 				F49D362F298D05E4003F2779 /* Movies List */,
@@ -609,6 +600,7 @@
 		F491A9F22987B7B1000EC50E /* Custom elements */ = {
 			isa = PBXGroup;
 			children = (
+				F4C8F334299E6161009E1883 /* Custom TabBar */,
 				F43B161829840C72002D2A1B /* Custom views */,
 				F46B02252971A6A400A40A80 /* ToolBar */,
 			);
@@ -637,6 +629,22 @@
 				F49D363D298D3175003F2779 /* DataBaseManager.swift */,
 			);
 			path = "Data Base";
+			sourceTree = "<group>";
+		};
+		F492608E299CD72A001593D7 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		F492608F299CD736001593D7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F49D3641298D459F003F2779 /* Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		F496BB3D298BB500000020C4 /* Favorites Module */ = {
@@ -717,6 +725,68 @@
 				F49D3635298D07BF003F2779 /* MoviesListClient.swift */,
 			);
 			path = "Network Client";
+			sourceTree = "<group>";
+		};
+		F4C8F32E299E3557009E1883 /* Home Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F45A9DBC29717AC10040B16D /* HomeCoordinator.swift */,
+				F4C8F333299E4358009E1883 /* Child  */,
+			);
+			path = "Home Coordinator";
+			sourceTree = "<group>";
+		};
+		F4C8F32F299E3572009E1883 /* Search Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F4F32225297FD07A002059C7 /* SearchCoordinator.swift */,
+			);
+			path = "Search Coordinator";
+			sourceTree = "<group>";
+		};
+		F4C8F330299E357E009E1883 /* Favorites Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F496BB45298BB5D3000020C4 /* FavoritesCoordinator.swift */,
+			);
+			path = "Favorites Coordinator";
+			sourceTree = "<group>";
+		};
+		F4C8F331299E4225009E1883 /* TabBar Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F4926090299CD992001593D7 /* TabBarCoordinator.swift */,
+				F4C8F32E299E3557009E1883 /* Home Coordinator */,
+				F4C8F32F299E3572009E1883 /* Search Coordinator */,
+				F4C8F330299E357E009E1883 /* Favorites Coordinator */,
+				F4405582297AC127005E8C9E /* DetailsCoordinator.swift */,
+			);
+			path = "TabBar Coordinator";
+			sourceTree = "<group>";
+		};
+		F4C8F332299E425C009E1883 /* Main Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F40AE5B92971539F004C70EC /* MainCoordinator.swift */,
+				F45A9DBA297177EF0040B16D /* LoginCoordinator.swift */,
+			);
+			path = "Main Coordinator";
+			sourceTree = "<group>";
+		};
+		F4C8F333299E4358009E1883 /* Child  */ = {
+			isa = PBXGroup;
+			children = (
+				F461221729758485001D3BA3 /* FilmsByGenreCoordinator.swift */,
+			);
+			path = "Child ";
+			sourceTree = "<group>";
+		};
+		F4C8F334299E6161009E1883 /* Custom TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				F4C8F335299E617D009E1883 /* CustomTabBarViewController.swift */,
+			);
+			path = "Custom TabBar";
 			sourceTree = "<group>";
 		};
 		F4CB5B54296D966900F39165 /* Login Module */ = {
@@ -1008,6 +1078,7 @@
 				F49D3640298D444A003F2779 /* FavoriteMovieDetailsCacheModel.swift in Sources */,
 				F49D3634298D063F003F2779 /* MoviesListEndpoint.swift in Sources */,
 				F4F3222A297FE30F002059C7 /* SearchModel.swift in Sources */,
+				F4926091299CD992001593D7 /* TabBarCoordinator.swift in Sources */,
 				F496BB46298BB5D3000020C4 /* FavoritesCoordinator.swift in Sources */,
 				F4112C8C2996787000462F51 /* GradientText.swift in Sources */,
 				F4FF7E63299A86BA00CCCDBD /* DetailsContainer.swift in Sources */,
@@ -1079,6 +1150,7 @@
 				F4FF7E55299A782F00CCCDBD /* SwinjectStoryboard.swift in Sources */,
 				F4D3FDCF2989346900C686F8 /* LogoViewModel.swift in Sources */,
 				F42789DB299395F800CA6A1D /* NetworkCheck.swift in Sources */,
+				F4C8F336299E617D009E1883 /* CustomTabBarViewController.swift in Sources */,
 				F452940E2970378500A8EAFF /* ServiceManager.swift in Sources */,
 				F45A9DB9297171080040B16D /* Storyboarded.swift in Sources */,
 			);

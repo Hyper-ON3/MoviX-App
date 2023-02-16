@@ -104,13 +104,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIf-PD-8iL" customClass="CustomToolBar" customModule="Movix" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="692" width="375" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="k8C-n7-KSR"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J0V-Sc-FGu">
                                 <rect key="frame" x="0.0" y="123" width="375" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,7 +150,7 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.17992019149873836" green="0.5142801984078601" blue="0.91009381499595954" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.1803921568627451" green="0.51372549019607838" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="fuz-3q-WgE" secondAttribute="trailing" id="2fe-x8-tSc"/>
                                                         <constraint firstAttribute="height" constant="80" id="AyI-Gb-l36"/>
@@ -242,7 +235,6 @@
                         <color key="backgroundColor" red="0.011764705882352941" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e0d-0P-N83" firstAttribute="top" secondItem="J0V-Sc-FGu" secondAttribute="bottom" constant="8" symbolic="YES" id="3Bq-9G-agH"/>
-                            <constraint firstAttribute="bottom" secondItem="lIf-PD-8iL" secondAttribute="bottom" id="3By-vh-tUo"/>
                             <constraint firstItem="yKs-CB-4OK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="41L-tc-i9f"/>
                             <constraint firstItem="J0V-Sc-FGu" firstAttribute="top" secondItem="jmv-h3-Xdf" secondAttribute="bottom" constant="8" symbolic="YES" id="52A-k7-IHU"/>
                             <constraint firstItem="J0V-Sc-FGu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="76" id="ARL-5W-UTU"/>
@@ -250,12 +242,10 @@
                             <constraint firstItem="Txv-RD-yPJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="L1U-vG-aDw"/>
                             <constraint firstItem="yKs-CB-4OK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="NE9-z6-dAa"/>
                             <constraint firstItem="e0d-0P-N83" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="TCB-OG-ypx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lIf-PD-8iL" secondAttribute="trailing" id="Tt4-1Z-8hj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J0V-Sc-FGu" secondAttribute="trailing" id="Wpe-sC-3hr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Txv-RD-yPJ" secondAttribute="trailing" constant="16" id="cPo-7j-nRg"/>
                             <constraint firstItem="jmv-h3-Xdf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="eQ4-xL-t4b"/>
                             <constraint firstItem="2Cs-I2-wwn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ekm-kt-tqI"/>
-                            <constraint firstItem="lIf-PD-8iL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qCa-wa-4U0"/>
                             <constraint firstItem="2Cs-I2-wwn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="vhQ-EC-96m"/>
                             <constraint firstAttribute="bottom" secondItem="e0d-0P-N83" secondAttribute="bottom" id="zBy-o6-v2O"/>
                             <constraint firstItem="J0V-Sc-FGu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zFz-FQ-Tf6"/>
@@ -263,7 +253,6 @@
                     </view>
                     <connections>
                         <outlet property="categoryLabel" destination="jmv-h3-Xdf" id="lPc-gt-KcK"/>
-                        <outlet property="customToolBar" destination="lIf-PD-8iL" id="tMv-wJ-aVv"/>
                         <outlet property="filmsTableView" destination="e0d-0P-N83" id="glc-Pj-H2C"/>
                         <outlet property="genresCollectionView" destination="J0V-Sc-FGu" id="vv9-az-Xqw"/>
                         <outlet property="greetingLabel" destination="yKs-CB-4OK" id="s08-0d-6qm"/>

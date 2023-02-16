@@ -13,7 +13,6 @@ import Lottie
 class SearchViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var searchCollectionView: UICollectionView!
-    @IBOutlet weak var customToolBar: CustomToolBar!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var searchQueryTableView: UITableView!
     @IBOutlet weak var noInternetLabel: UILabel!
@@ -22,7 +21,7 @@ class SearchViewController: UIViewController, Storyboarded {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let searchController = UISearchController()
-    weak var coordinator: SearchCoordinator?
+    var coordinator: SearchCoordinator?
     var searchViewModel: SearchViewModelProtocol?
     private var disposeBag = DisposeBag()
     
@@ -36,11 +35,15 @@ class SearchViewController: UIViewController, Storyboarded {
                 activityIndicator.isHidden = true
                 searchAnimation(animated: false)
                 noInternetAnimation(animated: true)
-                customToolBar.delegate = self
-                customToolBar.configureElements()
             }
         })
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        searchViewModel?.fetchSavedSearchQueries()
     }
 
     //MARK: - UI Configuration functions
@@ -66,9 +69,6 @@ class SearchViewController: UIViewController, Storyboarded {
         
         searchQueryTableView.delegate = self
         searchQueryTableView.isHidden = true
-        
-        customToolBar.delegate = self
-        customToolBar.configureElements()
         
         searchViewModel?.fetchSavedSearchQueries()
         
@@ -151,8 +151,8 @@ class SearchViewController: UIViewController, Storyboarded {
         searchCollectionView.rx.modelSelected(SearchModelResult.self).subscribe(onNext: { [weak self] value in
             guard let self else { return }
             
-            self.coordinator?.parentCoordinator?.goToDetails(with: value.id)
-            
+            //self.coordinator?.parentCoordinator?.goToDetails(with: value.id)
+            self.coordinator?.goToDetails(with: value.id)
         }).disposed(by: disposeBag)
     }
   
@@ -252,17 +252,3 @@ extension SearchViewController: UICollectionViewDelegate {
     }
 }
 
-extension SearchViewController: CustomToolBarDelegate {
-    
-    func toolBarButtonsPressed(tag: Int) {
-        switch tag {
-        case 0:
-            coordinator?.parentCoordinator?.goTo(screen: .home)
-            coordinator?.didFinishSearch()
-        case 2:
-            coordinator?.parentCoordinator?.goTo(screen: .favorites)
-            coordinator?.didFinishSearch()
-        default: return
-        }
-    }
-}

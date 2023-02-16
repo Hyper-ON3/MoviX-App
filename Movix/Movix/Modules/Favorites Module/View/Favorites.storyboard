@@ -84,31 +84,20 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="empty"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lxe-Mb-4X6" customClass="CustomToolBar" customModule="Movix" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="692" width="375" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="IsT-X2-11N"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
                             <constraint firstItem="mqK-FZ-mLr" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="5Qf-8Z-im9"/>
                             <constraint firstItem="mqK-FZ-mLr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="EnU-Kd-PV9"/>
                             <constraint firstItem="kSf-4L-BrJ" firstAttribute="top" secondItem="Csg-UE-1AS" secondAttribute="bottom" constant="20" id="PiV-ES-09r"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Lxe-Mb-4X6" secondAttribute="trailing" id="YI9-cX-FiE"/>
                             <constraint firstItem="Csg-UE-1AS" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Z0A-1I-daD"/>
-                            <constraint firstItem="Lxe-Mb-4X6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZUH-Qd-afI"/>
                             <constraint firstAttribute="bottom" secondItem="mqK-FZ-mLr" secondAttribute="bottom" id="cg7-fO-l4r"/>
                             <constraint firstItem="mqK-FZ-mLr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ewg-Hq-t6s"/>
                             <constraint firstItem="Csg-UE-1AS" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pbu-2T-IcE"/>
                             <constraint firstItem="kSf-4L-BrJ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pc1-N9-Rqj"/>
-                            <constraint firstAttribute="bottom" secondItem="Lxe-Mb-4X6" secondAttribute="bottom" id="sbF-bn-hiv"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="customToolBar" destination="Lxe-Mb-4X6" id="JDK-h9-gTE"/>
                         <outlet property="emptyAnimationView" destination="Csg-UE-1AS" id="3Xw-jg-Bdg"/>
                         <outlet property="favoritesTableView" destination="mqK-FZ-mLr" id="rYV-0m-DGS"/>
                         <outlet property="warningLabel" destination="kSf-4L-BrJ" id="8H6-Dv-vca"/>

@@ -9,7 +9,7 @@ import UIKit
 
 class FilmsByGenreCoordinator: Coordinator {
     
-    weak var parentCoordinator: MainCoordinator?
+    weak var parentCoordinator: HomeCoordinator?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     

@@ -70,13 +70,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-gC-Bdp" customClass="CustomToolBar" customModule="Movix" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="692" width="375" height="120"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="N7O-4i-CUD"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qK2-Tt-DUz">
                                 <rect key="frame" x="16" y="47" width="279" height="170"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,7 +137,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8wa-Uz-HKX">
-                                <rect key="frame" x="177.66666666666666" y="660" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="758" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -154,23 +147,19 @@
                             <constraint firstItem="LYs-16-hAu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="53V-Up-ZGf"/>
                             <constraint firstItem="bMG-V4-6u7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Oh-SK-Z4x"/>
                             <constraint firstItem="qK2-Tt-DUz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Fj0-bV-CDO"/>
-                            <constraint firstItem="eCF-gC-Bdp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="IAm-Ng-v6Y"/>
                             <constraint firstItem="LYs-16-hAu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J3U-lw-8uf"/>
                             <constraint firstItem="8wa-Uz-HKX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="LA0-di-rUZ"/>
                             <constraint firstItem="qK2-Tt-DUz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Lft-8J-mSo"/>
                             <constraint firstItem="dzI-di-uE8" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Tvz-kt-icj"/>
                             <constraint firstItem="dzI-di-uE8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Y0X-mm-2VW"/>
-                            <constraint firstItem="eCF-gC-Bdp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZCr-GA-FU6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qK2-Tt-DUz" secondAttribute="trailing" constant="80" id="Zyl-an-18X"/>
-                            <constraint firstAttribute="bottom" secondItem="eCF-gC-Bdp" secondAttribute="bottom" id="alQ-Kh-HT7"/>
                             <constraint firstItem="bMG-V4-6u7" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="fl9-r8-SiR"/>
-                            <constraint firstItem="eCF-gC-Bdp" firstAttribute="top" secondItem="8wa-Uz-HKX" secondAttribute="bottom" constant="12" id="lGG-DW-nvK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8wa-Uz-HKX" secondAttribute="bottom" id="smF-Z0-Me6"/>
                             <constraint firstAttribute="bottom" secondItem="LYs-16-hAu" secondAttribute="bottom" id="yp3-xO-VYY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="8wa-Uz-HKX" id="Mmi-F3-RFC"/>
-                        <outlet property="customToolBar" destination="eCF-gC-Bdp" id="08M-O1-ic8"/>
                         <outlet property="noInternetAnimationView" destination="cTg-Sn-pI6" id="wRs-Vc-25Q"/>
                         <outlet property="noInternetLabel" destination="itg-c1-KUI" id="UPx-ZT-PTN"/>
                         <outlet property="searchAnimationView" destination="Y20-g6-VI3" id="iib-OI-Pf2"/>
