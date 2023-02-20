@@ -61,7 +61,7 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = createPath()
         shapeLayer.strokeColor = UIColor.clear.cgColor
-        shapeLayer.fillColor = UIColor(red: 235/255, green: 235/255, blue: 235/255 , alpha: 1).cgColor
+        shapeLayer.fillColor = UIColor(red: 244/255, green: 247/255, blue: 255/255 , alpha: 1).cgColor
         shapeLayer.lineWidth = 1.0
         
         shapeLayer.shadowOffset = CGSize(width: 0, height: 0)

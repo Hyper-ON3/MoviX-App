@@ -45,7 +45,6 @@ class HomeViewModel: HomeViewModelProtocol {
                                                                                              name: "",
                                                                                              includeAdult: false,
                                                                                              username: ""))
-    private var networkCheck = NetworkCheck.sharedInstance()
     
     //MARK: - Functions 
     
@@ -130,7 +129,7 @@ class HomeViewModel: HomeViewModelProtocol {
     
     func checkNetworkStatus(completion: @escaping ((Bool) -> Void)) {
         
-        if networkCheck.currentStatus == .satisfied{
+        if NetworkMonitor.shared.isConnected {
             completion(true)
         } else {
             completion(false)

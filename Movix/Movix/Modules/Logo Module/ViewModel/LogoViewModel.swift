@@ -13,9 +13,7 @@ protocol LogoViewModelProtocol: AnyObject {
 }
 
 class LogoViewModel: LogoViewModelProtocol {
-    
-    private var networkCheck = NetworkCheck.sharedInstance()
-    
+        
     // Сhecking whether the user is logged in
     private func authCheck() -> LoginModel? {
         
@@ -44,7 +42,7 @@ class LogoViewModel: LogoViewModelProtocol {
     
     func checkNetworkStatus(_ coordinator: MainCoordinator?) {
         
-        if networkCheck.currentStatus == .satisfied {
+        if NetworkMonitor.shared.isConnected {
             logIn(coordinator: coordinator)
         } else {
             coordinator?.goTo(screen: .home)

@@ -66,8 +66,6 @@ class TabBarCoordinator: NSObject, TabBarCoordinatorProtocol, Coordinator {
             
             let search = SearchCoordinator(navigationController: navController)
             search.parentCoordinator = parentCoordinator
-            search.navigationController.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: -7, bottom: -7, right: 0)
-            search.navigationController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 15)
             search.start()
         case .home:
             
@@ -78,8 +76,6 @@ class TabBarCoordinator: NSObject, TabBarCoordinatorProtocol, Coordinator {
         case .favorites:
             
             let favorites = FavoritesCoordinator(navigationController: navController)
-            favorites.navigationController.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: -7, bottom: -7, right: 0)
-            favorites.navigationController.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 15)
             favorites.start()
         }
         

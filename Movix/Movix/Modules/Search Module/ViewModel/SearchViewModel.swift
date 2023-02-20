@@ -30,7 +30,6 @@ class SearchViewModel: SearchViewModelProtocol {
     var lastSearchQueries = BehaviorRelay<[String]>(value: [])
     
     private let disposeBag = DisposeBag()
-    private var networkCheck = NetworkCheck.sharedInstance()
     private var saveSearchQueries: [String] {
         get {
             return UserDefaults.standard.stringArray(forKey: K.Keys.searchQueriesKey) ?? []
@@ -120,7 +119,7 @@ class SearchViewModel: SearchViewModelProtocol {
     
     func checkNetworkStatus(completion: ((Bool) -> Void)) {
         
-        if networkCheck.currentStatus == .satisfied {
+        if NetworkMonitor.shared.isConnected {
             completion(true)
         } else {
             completion(false)

@@ -25,7 +25,6 @@ class DetailsViewModel: DetailsViewModelProtocol {
     
     private let disposeBag = DisposeBag()
     private var repository: RepositoryProtocol?
-    private let networkCheck = NetworkCheck.sharedInstance()
     
     var filmId: Int?
     var trailerInfo = BehaviorRelay<TrailerModel>(value: TrailerModel(trailerID: ""))
@@ -109,7 +108,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
     
     func checkNetworkStatus(completion: ((Bool) -> Void)) {
         
-        if networkCheck.currentStatus == .satisfied {
+        if NetworkMonitor.shared.isConnected {
             completion(true)
         } else {
             completion(false)

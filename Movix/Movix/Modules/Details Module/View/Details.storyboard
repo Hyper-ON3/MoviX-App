@@ -168,7 +168,6 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offline" translatesAutoresizingMaskIntoConstraints="NO" id="fQW-eg-rwv">
                                                 <rect key="frame" x="0.0" y="963" width="375" height="230"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="TQQ-t0-5qE"/>
                                                     <constraint firstAttribute="height" constant="230" id="eOO-Hi-47s"/>
                                                 </constraints>
                                             </imageView>
@@ -255,9 +254,6 @@
             <point key="canvasLocation" x="-1676" y="-245.32019704433498"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="7HF-AB-uUf"/>
-    </designables>
     <resources>
         <image name="offline" width="612" height="612"/>
         <systemColor name="systemGray2Color">

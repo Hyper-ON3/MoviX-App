@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         homeViewModel?.checkNetworkStatus(completion: { status in
             if status == true {
                 self.noInternetAnimation(animated: false)
