@@ -23,13 +23,14 @@ class FavoritesViewModel: FavoritesViewModelProtocol {
     
     private let disposeBag = DisposeBag()
     private let repository: RepositoryProtocol?
-    
     var moviesListData = BehaviorRelay<[FavoritesMoviesCacheModel]>(value: [])
     var listName = BehaviorRelay<String>(value: "")
     
     init(repository: RepositoryProtocol?) {
         self.repository = repository
     }
+    
+    //MARK: - Functions 
     
     func loadFavoriteMovies() {
         

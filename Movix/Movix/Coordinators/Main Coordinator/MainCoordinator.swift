@@ -47,7 +47,6 @@ class MainCoordinator: Coordinator {
         loginCoordinator.parentCoordinator = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
-        print("CHILD COORD: ", childCoordinators.count)
     }
     
     private func showMainFlow() {

@@ -36,19 +36,25 @@ class DetailsViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         detailsViewModel?.checkNetworkStatus(completion: { status in
             
             if status == false {
                 offlineImageView.isHidden = false
+                addToFavoriteButton.isHidden = true
+                animationView(animated: false)
             } else {
                 offlineImageView.isHidden = true
             }
         })
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         coordinator?.didFinishDetails()
     }
@@ -71,6 +77,13 @@ class DetailsViewController: UIViewController, Storyboarded {
     
     private func configureDetails(with model: DetailsModel) {
         
+        detailsViewModel?.isMovieInList(with: model.id, completion: { status in
+           
+            if status == true {
+                self.animationView(animated: false)
+            }
+        })
+        
         if model.backdropPath == "" {
             self.posterImageView.image = UIImage(named: K.ImagesName.noImage)
         } else {
@@ -82,7 +95,7 @@ class DetailsViewController: UIViewController, Storyboarded {
                 self.genresLabel.text = (self.genresLabel.text ?? "") + String(i)
             }
         }
-    
+        
         self.filmNameLabel.text = model.filmName
         self.statusLabel.text = "Status: " + model.status
         self.filmInfoLabel.text = model.filmInfo.joined(separator: " || ") + " min"
@@ -93,18 +106,27 @@ class DetailsViewController: UIViewController, Storyboarded {
     
     //MARK: - Animation functions
     
-    private func animationView() {
+    private func animationView(animated: Bool) {
         
         addToFavoriteButton.isHidden = true
         successAnimationView.isHidden = false
         successAnimationView.contentMode = .scaleAspectFit
         successAnimationView.loopMode = .playOnce
         
-        successAnimationView.play() { [weak self] _ in
-            guard let self else { return }
-            
-            self.successAnimationView.isHidden = true
-            self.addToFavoriteButton.isHidden = false
+        if animated == true {
+            successAnimationView.play() { [weak self] _ in
+                guard let self else { return }
+                
+                self.successAnimationView.isHidden = true
+                self.addToFavoriteButton.isHidden = false
+            }
+        } else {
+            successAnimationView.play() { [weak self] _ in
+                guard let self else { return }
+                
+                self.successAnimationView.isHidden = false
+                self.addToFavoriteButton.isHidden = true
+            }
         }
     }
     
@@ -127,20 +149,20 @@ class DetailsViewController: UIViewController, Storyboarded {
         
         let object = detailsViewModel?.details
         guard let object else { return }
-  
+        
         object
             .asDriver()
             .drive(onNext: { [weak self] data in
-            guard let self else { return }
-            
-            // Сhecks whether data of the type exists
-            if data.status.isEmpty {
-                self.activityIndicator(animated: true)
-            } else {
-                self.activityIndicator(animated: false)
-                self.configureDetails(with: data)
-            }
-        }).disposed(by: disposeBag)
+                guard let self else { return }
+                
+                // Сhecks whether data of the type exists
+                if data.status.isEmpty {
+                    self.activityIndicator(animated: true)
+                } else {
+                    self.activityIndicator(animated: false)
+                    self.configureDetails(with: data)
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func loadTrailer() {
@@ -154,13 +176,13 @@ class DetailsViewController: UIViewController, Storyboarded {
                 guard let self else { return }
                 
                 self.trailerPlayerView.load(withVideoId: info.trailerID)
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     //MARK: - IBActions
     
     @IBAction func addToFavoriteButtonTapped(_ sender: UIButton) {
-        animationView()
+        animationView(animated: true)
         
         detailsViewModel?.addFimlToList(with: detailsViewModel?.details.value.id ?? 0)
     }

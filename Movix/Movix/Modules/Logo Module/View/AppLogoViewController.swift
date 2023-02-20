@@ -22,7 +22,7 @@ class AppLogoViewController: UIViewController, Storyboarded {
         
         configureUI()
     }
-
+    
     private func configureUI() {
         
         animation.contentMode = .scaleAspectFit

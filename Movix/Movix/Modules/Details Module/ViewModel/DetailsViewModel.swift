@@ -18,6 +18,7 @@ protocol DetailsViewModelProtocol {
     func getDetails()
     func addFimlToList(with id: Int)
     func checkNetworkStatus(completion: ((Bool) -> Void))
+    func isMovieInList(with id: Int, completion: @escaping ((Bool) -> Void))
 }
 
 class DetailsViewModel: DetailsViewModelProtocol {
@@ -40,6 +41,8 @@ class DetailsViewModel: DetailsViewModelProtocol {
     init(repository: RepositoryProtocol?) {
         self.repository = repository
     }
+    
+    //MARK: - Functions 
     
     func getDetails() {
         
@@ -71,7 +74,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
                                         status: item.status))
         }
     }
-
+    
     func addFimlToList(with id: Int) {
         MoviesListClient.addFilmToList(id: id)
     }
@@ -101,8 +104,7 @@ class DetailsViewModel: DetailsViewModelProtocol {
                                                  filmRating: ServiceManager.shared.setRating(data.voteAverage),
                                                  about: data.overview ?? "",
                                                  status: data.status))
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     func checkNetworkStatus(completion: ((Bool) -> Void)) {
@@ -111,6 +113,14 @@ class DetailsViewModel: DetailsViewModelProtocol {
             completion(true)
         } else {
             completion(false)
+        }
+    }
+    
+    // Сhecks if the movie has been added to favorites
+    func isMovieInList(with id: Int, completion: @escaping ((Bool) -> Void)) {
+        
+        MoviesListClient.checkItemStatus(with: id) { status in
+            completion(status)
         }
     }
 }

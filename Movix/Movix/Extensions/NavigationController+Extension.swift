@@ -9,7 +9,7 @@ import UIKit
 
 extension UINavigationController {
     
-    // changes transition animations for NavigationController
+    // Changes transition animations for NavigationController
     
     func setViewControllerWithAnimation(viewController: UIViewController) {
         

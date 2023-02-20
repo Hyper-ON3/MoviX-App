@@ -7,11 +7,10 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import Lottie
 
 class SearchViewController: UIViewController, Storyboarded {
-
+    
     @IBOutlet weak var searchCollectionView: UICollectionView!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var searchQueryTableView: UITableView!
@@ -20,50 +19,49 @@ class SearchViewController: UIViewController, Storyboarded {
     @IBOutlet weak var searchAnimationView: LottieAnimationView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let searchController = UISearchController()
     var coordinator: SearchCoordinator?
     var searchViewModel: SearchViewModelProtocol?
+    let searchController = UISearchController()
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchViewModel?.checkNetworkStatus(completion: { status in
-            if status == true {
-                configureUI()
-            } else {
-                activityIndicator.isHidden = true
-                searchAnimation(animated: false)
-                noInternetAnimation(animated: true)
-            }
-        })
-        
+        configureUI()
+    
+        bindTableView()
+        bindCollectionView()
+        setObserverToSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        searchViewModel?.fetchSavedSearchQueries()
+        searchViewModel?.checkNetworkStatus(completion: { status in
+            if status == true {
+                noInternetAnimation(animated: false)
+                searchViewModel?.fetchSavedSearchQueries()
+            } else {
+                searchAnimation(animated: false)
+                noInternetAnimation(animated: true)
+            }
+        })
     }
-
+    
     //MARK: - UI Configuration functions
     
     private func configureUI() {
+        
         title = K.Titles.searchMovies
         
         activityIndicator.isHidden = true
         
         searchCollectionView.delegate = self
+        searchCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         
         searchAnimation(animated: true)
-    
+        
         searchController.searchBar.returnKeyType = .go
-        
-        noInternetAnimationView.isHidden = true
-        noInternetLabel.isHidden = true
-        
-        searchCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
- 
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -71,10 +69,6 @@ class SearchViewController: UIViewController, Storyboarded {
         searchQueryTableView.isHidden = true
         
         searchViewModel?.fetchSavedSearchQueries()
-        
-        bindCollectionView()
-        bindTableView()
-        searchBarObserver()
     }
     
     //MARK: - Animation functions
@@ -87,13 +81,13 @@ class SearchViewController: UIViewController, Storyboarded {
             title = K.Titles.searchMovies
             noInternetAnimationView.isHidden = false
             noInternetLabel.isHidden = false
-            warningLabel.isHidden = true
             searchCollectionView.isHidden = true
             noInternetAnimationView.play()
         } else {
             noInternetAnimationView.stop()
             noInternetAnimationView.isHidden = true
             noInternetLabel.isHidden = true
+            searchCollectionView.isHidden = false
         }
     }
     
@@ -115,8 +109,8 @@ class SearchViewController: UIViewController, Storyboarded {
     }
     
     //MARK: - UI Bindings
-        
-    func bindCollectionView() {
+    
+    private func bindCollectionView() {
         
         let object = searchViewModel?.filmsData
         guard let object = object else { return }
@@ -142,21 +136,22 @@ class SearchViewController: UIViewController, Storyboarded {
             .drive(searchCollectionView
                 .rx
                 .items(cellIdentifier: K.Identifiers.searchCell, cellType: SearchCollectionViewCell.self)) { _, data, cell in
-
+                    
                     cell.configureCell(with: data)
-
+                    
                 }.disposed(by: disposeBag)
-    
+        
         // Notifies which object in has been selected in the CollectionView
-        searchCollectionView.rx.modelSelected(SearchModelResult.self).subscribe(onNext: { [weak self] value in
+        searchCollectionView.rx.modelSelected(SearchModelResult.self)
+            .asDriver()
+            .drive(onNext: { [weak self] value in
             guard let self else { return }
             
-            //self.coordinator?.parentCoordinator?.goToDetails(with: value.id)
             self.coordinator?.goToDetails(with: value.id)
         }).disposed(by: disposeBag)
     }
-  
-    func bindTableView() {
+    
+    private func bindTableView() {
         
         let object = searchViewModel?.lastSearchQueries
         
@@ -181,62 +176,65 @@ class SearchViewController: UIViewController, Storyboarded {
                 }.disposed(by: disposeBag)
         
         // Notifies which object in has been selected and passes the saved search query to the search bar
-        searchQueryTableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+        searchQueryTableView.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { [weak self] indexPath in
             guard let self else { return }
-            
+
             let cell = self.searchQueryTableView.cellForRow(at: indexPath)
             self.searchController.searchBar.text = cell?.textLabel?.text
         }).disposed(by: disposeBag)
     }
     
-    private func searchBarObserver() {
+    private func setObserverToSearchBar() {
         
-        let object = searchViewModel?.filmsData
+        let object = searchViewModel?.lastSearchQueries
         guard let object = object else { return }
         
         // Saves the search query if it has been entered
         searchController.searchBar.rx.text
             .asDriver()
             .drive(onNext: { [weak self] query in
-            guard let self else { return }
-            
-            let searchBar = self.searchController.searchBar
-            if !searchBar.searchTextField.isEditing && searchBar.text != "" {
-                self.searchViewModel?.saveSearchQuery(query ?? "")
-            }
-        }).disposed(by: disposeBag)
+                guard let self else { return }
+                
+                let searchBar = self.searchController.searchBar
+                if !searchBar.searchTextField.isEditing && searchBar.text != "" {
+                    self.searchViewModel?.saveSearchQuery(query ?? "")
+                }
+            }).disposed(by: disposeBag)
         
         // Observes the text field of the search bar
         searchController.searchBar.rx.textDidBeginEditing
             .asDriver()
             .drive(onNext: { [weak self] _ in
-            guard let self else { return }
-
-            self.searchViewModel?.fetchSavedSearchQueries()
-            
-            if object.value.count != 0 {
-                self.searchQueryTableView.isHidden = false
-            }
-
-            self.searchViewModel?.updateFilmsData()
-            self.searchAnimation(animated: true)
-        }).disposed(by: disposeBag)
+                guard let self else { return }
+                
+                self.searchViewModel?.fetchSavedSearchQueries()
+                
+                if object.value.count != 0 {
+                    self.searchQueryTableView.isHidden = false
+                }
+                
+                self.searchViewModel?.updateFilmsData()
+                self.searchAnimation(animated: true)
+            }).disposed(by: disposeBag)
         
         searchController.searchBar.rx.textDidEndEditing
             .asDriver()
             .drive(onNext: { [weak self] _ in
-            guard let self else { return }
-            
-            self.searchQueryTableView.isHidden = true
-            self.searchController.searchBar.text = ""
-        }).disposed(by: disposeBag)
+                guard let self else { return }
+                
+                self.searchQueryTableView.isHidden = true
+                self.searchController.searchBar.text = ""
+            }).disposed(by: disposeBag)
     }
+    
 }
 
 //MARK: - Extensions
 
 extension SearchViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
     }
@@ -246,7 +244,7 @@ extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        // CollectionView pagination func 
+        // CollectionView pagination func
         searchViewModel?.fetchMoreFilms(index: indexPath.row, collectionView: searchCollectionView, activityInticator: activityIndicator)
         
     }

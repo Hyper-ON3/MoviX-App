@@ -27,6 +27,8 @@ class FilmsByGenreViewModel: FilmsByGenreProtocol {
     private var currentPage = 1
     private var totalPages = 0
     
+    //MARK: - Functions 
+    
     func getFilms() {
         
         MoviesClient.getMoviesByGenre(id: genreInfo?.id ?? 0, from: currentPage)
@@ -43,7 +45,7 @@ class FilmsByGenreViewModel: FilmsByGenreProtocol {
                                    title: film.title,
                                    voteAverage: film.voteAverage,
                                    releaseDate: film.releaseDate ?? "")
-
+                    
                 })
                 
                 self.filmsArray.accept(self.filmsArray.value + (result ?? []))
@@ -58,7 +60,7 @@ class FilmsByGenreViewModel: FilmsByGenreProtocol {
             
             self.currentPage += 1
             tableView.tableFooterView = activityInticator
-    
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.getFilms()
             }

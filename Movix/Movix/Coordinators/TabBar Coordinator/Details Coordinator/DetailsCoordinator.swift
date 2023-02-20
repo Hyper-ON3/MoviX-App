@@ -20,6 +20,7 @@ class DetailsCoordinator: Coordinator {
     }
     
     func start() {
+        
         let vc = DetailsViewController.createObject(from: .details)
         vc.coordinator = self
         vc.detailsViewModel?.filmId = id

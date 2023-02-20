@@ -7,7 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 class FilmsByGenreViewController: UIViewController, Storyboarded {
     
@@ -24,8 +23,8 @@ class FilmsByGenreViewController: UIViewController, Storyboarded {
         configureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
         coordinator?.didFinishFilms()
     }
@@ -54,6 +53,8 @@ class FilmsByGenreViewController: UIViewController, Storyboarded {
             self.activityIndicator.isHidden = true
         }
     }
+    
+    //MARK: - Animation functions
     
     private func createActivityIndicator() -> UIView {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
@@ -103,6 +104,8 @@ class FilmsByGenreViewController: UIViewController, Storyboarded {
         }).disposed(by: disposeBag)
     }
 }
+
+//MARK: - Extensions
 
 extension FilmsByGenreViewController: UITableViewDelegate {
 

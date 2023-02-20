@@ -8,7 +8,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RealmSwift
 
 class ServiceManager {
     static let shared = ServiceManager()

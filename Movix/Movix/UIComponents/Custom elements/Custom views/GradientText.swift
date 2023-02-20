@@ -10,6 +10,7 @@ import UIKit
 class GradientText {
     
     static func gradientColor(bounds: CGRect, gradientLayer :CAGradientLayer) -> UIColor? {
+        
     //Creating UIImage to get gradient color.
           UIGraphicsBeginImageContext(gradientLayer.bounds.size)
           gradientLayer.render(in: UIGraphicsGetCurrentContext()!)

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 import RxSwift
 import RxCocoa
 
@@ -32,13 +31,13 @@ protocol HomeViewModelProtocol: AnyObject {
     func getAccountDetails()
     func logout(_ coordinator: MainCoordinator?)
     func checkNetworkStatus(completion: @escaping ((Bool) -> Void))
-
+    
 }
 
 //MARK: - Class
 
 class HomeViewModel: HomeViewModelProtocol {
-   
+    
     let disposeBag = DisposeBag()
     var genresArray = BehaviorRelay<[GenreList]>(value: [])
     var filmsArray = BehaviorRelay<[FilmsCategory]>(value: [])
@@ -47,7 +46,8 @@ class HomeViewModel: HomeViewModelProtocol {
                                                                                              includeAdult: false,
                                                                                              username: ""))
     private var networkCheck = NetworkCheck.sharedInstance()
-    //var networkManager = NetworkManager()
+    
+    //MARK: - Functions 
     
     func getGenres() {
         
@@ -104,8 +104,6 @@ class HomeViewModel: HomeViewModelProtocol {
                                                                items: [FilmsCategoryItem(items: result)])]
                 
                 self.filmsArray.accept(self.filmsArray.value + sections)
-                
-                
             })
             .disposed(by: disposeBag)
     }
@@ -115,12 +113,12 @@ class HomeViewModel: HomeViewModelProtocol {
         ServiceManager.shared.userDetails
             .asDriver()
             .drive(onNext: { data in
-            
-            self.accountDetails.accept(GetAccountDetailsModel(id: data.id,
-                                                         name: data.name,
-                                                         includeAdult: data.includeAdult,
-                                                         username: data.username))
-        }).disposed(by: disposeBag)
+                
+                self.accountDetails.accept(GetAccountDetailsModel(id: data.id,
+                                                                  name: data.name,
+                                                                  includeAdult: data.includeAdult,
+                                                                  username: data.username))
+            }).disposed(by: disposeBag)
     }
     
     func logout(_ coordinator: MainCoordinator?) {
@@ -131,10 +129,10 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func checkNetworkStatus(completion: @escaping ((Bool) -> Void)) {
-
+        
         if networkCheck.currentStatus == .satisfied{
             completion(true)
-        } else{
+        } else {
             completion(false)
         }
     }

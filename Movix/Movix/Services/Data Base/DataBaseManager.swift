@@ -12,7 +12,7 @@ protocol DBManagerProtocol {
     
     func save<T: Object>(data: T)
     func obtainData<T: Object>(of type: T.Type) -> Array<T>
-    func deleteItem<T: Object, K>(of type: T.Type, with id: K)
+    func deleteItem<T: Object, Key>(of type: T.Type, with id: Key)
 }
 
 class DBManager: DBManagerProtocol {
@@ -33,7 +33,7 @@ class DBManager: DBManagerProtocol {
         return Array(result)
     }
     
-    func deleteItem<T: Object, K>(of type: T.Type, with id: K) {
+    func deleteItem<T: Object, Key>(of type: T.Type, with id: Key) {
         
         let deleteObject = realm.object(ofType: type.self, forPrimaryKey: id)
         

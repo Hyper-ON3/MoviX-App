@@ -24,6 +24,7 @@ struct K {
     }
     
     struct Identifiers {
+        
         static let genreCell = "GenreCollectionViewCell"
         static let filmsTableViewCell = "FilmsTableVIewCell"
         static let filmsCollectionViewCell = "FilmInfoCollectionViewCell"
@@ -55,6 +56,8 @@ struct K {
         
         static let home = "home"
         static let homeSelected = "homeSelected"
+        static let homeBig = "home-4"
+        static let homeBigSelected = "home-5"
         static let search = "search"
         static let searchSelected = "searchSelected"
         static let favorites = "favorites"
@@ -64,6 +67,7 @@ struct K {
     }
     
     enum HTTPHeaderField: String {
+        
         case authentication = "Authorization"
         case contentType = "Content-Type"
         case acceptType = "Accept"
@@ -71,6 +75,7 @@ struct K {
     }
     
     enum ContentType: String {
+        
         case json = "application/json"
     }
 }

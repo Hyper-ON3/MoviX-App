@@ -24,6 +24,8 @@ protocol SearchViewModelProtocol {
 
 class SearchViewModel: SearchViewModelProtocol {
     
+    //MARK: - Instances
+    
     var filmsData = BehaviorRelay<[SearchModelResult]>(value: [])
     var lastSearchQueries = BehaviorRelay<[String]>(value: [])
     
@@ -42,6 +44,8 @@ class SearchViewModel: SearchViewModelProtocol {
     private var request: String?
     private var currentPage = 1
     private var totalPages = 0
+    
+    //MARK: - Functions
     
     func fetchSavedSearchQueries() {
         lastSearchQueries.accept(saveSearchQueries)
@@ -68,6 +72,7 @@ class SearchViewModel: SearchViewModelProtocol {
             }).disposed(by: disposeBag)
     }
     
+    // Function for pagination
     func fetchMoreFilms(index: Int, collectionView: UICollectionView, activityInticator: UIActivityIndicatorView?) {
         
         if index == (filmsData.value.count - 1), currentPage < totalPages {

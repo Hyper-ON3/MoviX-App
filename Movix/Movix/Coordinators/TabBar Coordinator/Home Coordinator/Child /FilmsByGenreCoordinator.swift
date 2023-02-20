@@ -20,6 +20,7 @@ class FilmsByGenreCoordinator: Coordinator {
     }
     
     func start() {
+        
         let vc = FilmsByGenreViewController.createObject(from: .filmsByGenre)
         vc.coordinator = self
         vc.filmsViewModel?.genreInfo = info

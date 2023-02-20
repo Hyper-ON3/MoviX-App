@@ -16,6 +16,7 @@ enum AuthEndpoint: APIConfiguration {
     case getAccountDetails(sessionId: String)
     
     var method: HTTPMethod {
+        
         switch self {
         case .getRequestToken, .getAccountDetails:
             return .get
@@ -25,6 +26,7 @@ enum AuthEndpoint: APIConfiguration {
     }
     
     var path: String {
+        
         switch self {
         case .getRequestToken:
             return K.API.baseURL + "/authentication/token/new?api_key=" + K.API.apiKey
@@ -74,6 +76,4 @@ enum AuthEndpoint: APIConfiguration {
        
         return urlRequest
     }
-    
-    
 }

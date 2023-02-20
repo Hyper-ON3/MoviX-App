@@ -11,7 +11,6 @@ class FavoritesCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var parentCoordinator: MainCoordinator?
-    
     var navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -19,6 +18,7 @@ class FavoritesCoordinator: Coordinator {
     }
     
     func start() {
+        
         let vc = FavoritesViewController.createObject(from: .favorites)
         vc.coordinator = self
         navigationController.setViewControllerWithAnimation(viewController: vc)

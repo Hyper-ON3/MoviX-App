@@ -137,7 +137,7 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8wa-Uz-HKX">
-                                <rect key="frame" x="177.66666666666666" y="758" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="738" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -154,7 +154,7 @@
                             <constraint firstItem="dzI-di-uE8" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Y0X-mm-2VW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qK2-Tt-DUz" secondAttribute="trailing" constant="80" id="Zyl-an-18X"/>
                             <constraint firstItem="bMG-V4-6u7" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="fl9-r8-SiR"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8wa-Uz-HKX" secondAttribute="bottom" id="smF-Z0-Me6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8wa-Uz-HKX" secondAttribute="bottom" constant="20" id="smF-Z0-Me6"/>
                             <constraint firstAttribute="bottom" secondItem="LYs-16-hAu" secondAttribute="bottom" id="yp3-xO-VYY"/>
                         </constraints>
                     </view>

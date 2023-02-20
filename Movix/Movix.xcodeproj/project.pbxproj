@@ -46,8 +46,6 @@
 		F4612216297583A7001D3BA3 /* FilmsByGenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4612215297583A7001D3BA3 /* FilmsByGenreViewModel.swift */; };
 		F461221829758485001D3BA3 /* FilmsByGenreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461221729758485001D3BA3 /* FilmsByGenreCoordinator.swift */; };
 		F461221C29759076001D3BA3 /* FilmsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F461221B29759076001D3BA3 /* FilmsListModel.swift */; };
-		F46B022129719E7900A40A80 /* CustomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B022029719E7900A40A80 /* CustomToolBar.swift */; };
-		F46B022429719E8D00A40A80 /* CustomToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46B022329719E8D00A40A80 /* CustomToolBar.xib */; };
 		F46B02272971AF5200A40A80 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B02262971AF5200A40A80 /* GenreCollectionViewCell.swift */; };
 		F46B02292971AF6F00A40A80 /* FilmsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B02282971AF6F00A40A80 /* FilmsTableViewCell.swift */; };
 		F46B022B2971AF9800A40A80 /* FilmInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B022A2971AF9800A40A80 /* FilmInfoCollectionViewCell.swift */; };
@@ -84,6 +82,7 @@
 		F4C8F336299E617D009E1883 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C8F335299E617D009E1883 /* CustomTabBarViewController.swift */; };
 		F4D3FDCC29891C9500C686F8 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */; };
 		F4D3FDCF2989346900C686F8 /* LogoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3FDCE2989346900C686F8 /* LogoViewModel.swift */; };
+		F4E97C5C29A37ACC0061E6E3 /* TabBarConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E97C5B29A37ACC0061E6E3 /* TabBarConfigure.swift */; };
 		F4F3221F297FCCBA002059C7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F3221E297FCCBA002059C7 /* Search.storyboard */; };
 		F4F32221297FCCCA002059C7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F32220297FCCCA002059C7 /* SearchViewController.swift */; };
 		F4F32224297FCF7A002059C7 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F32223297FCF7A002059C7 /* SearchCollectionViewCell.swift */; };
@@ -153,8 +152,6 @@
 		F4612215297583A7001D3BA3 /* FilmsByGenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsByGenreViewModel.swift; sourceTree = "<group>"; };
 		F461221729758485001D3BA3 /* FilmsByGenreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsByGenreCoordinator.swift; sourceTree = "<group>"; };
 		F461221B29759076001D3BA3 /* FilmsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsListModel.swift; sourceTree = "<group>"; };
-		F46B022029719E7900A40A80 /* CustomToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolBar.swift; sourceTree = "<group>"; };
-		F46B022329719E8D00A40A80 /* CustomToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomToolBar.xib; sourceTree = "<group>"; };
 		F46B02262971AF5200A40A80 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		F46B02282971AF6F00A40A80 /* FilmsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsTableViewCell.swift; sourceTree = "<group>"; };
 		F46B022A2971AF9800A40A80 /* FilmInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +188,7 @@
 		F4C8F335299E617D009E1883 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		F4D3FDCB29891C9500C686F8 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		F4D3FDCE2989346900C686F8 /* LogoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewModel.swift; sourceTree = "<group>"; };
+		F4E97C5B29A37ACC0061E6E3 /* TabBarConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigure.swift; sourceTree = "<group>"; };
 		F4F3221E297FCCBA002059C7 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		F4F32220297FCCCA002059C7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		F4F32223297FCF7A002059C7 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -407,10 +405,10 @@
 		F452940C2970373000A8EAFF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F452940D2970378500A8EAFF /* ServiceManager.swift */,
-				F492608E299CD72A001593D7 /* Keychain */,
 				F492608D299CCD21001593D7 /* Data Base */,
+				F492608E299CD72A001593D7 /* Keychain */,
 				F492608F299CD736001593D7 /* Repository */,
+				F452940D2970378500A8EAFF /* ServiceManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -547,15 +545,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F46B02252971A6A400A40A80 /* ToolBar */ = {
-			isa = PBXGroup;
-			children = (
-				F46B022029719E7900A40A80 /* CustomToolBar.swift */,
-				F46B022329719E8D00A40A80 /* CustomToolBar.xib */,
-			);
-			path = ToolBar;
-			sourceTree = "<group>";
-		};
 		F46B022C2971BA3E00A40A80 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,7 +591,6 @@
 			children = (
 				F4C8F334299E6161009E1883 /* Custom TabBar */,
 				F43B161829840C72002D2A1B /* Custom views */,
-				F46B02252971A6A400A40A80 /* ToolBar */,
 			);
 			path = "Custom elements";
 			sourceTree = "<group>";
@@ -756,10 +744,11 @@
 			isa = PBXGroup;
 			children = (
 				F4926090299CD992001593D7 /* TabBarCoordinator.swift */,
+				F4E97C5B29A37ACC0061E6E3 /* TabBarConfigure.swift */,
 				F4C8F32E299E3557009E1883 /* Home Coordinator */,
 				F4C8F32F299E3572009E1883 /* Search Coordinator */,
 				F4C8F330299E357E009E1883 /* Favorites Coordinator */,
-				F4405582297AC127005E8C9E /* DetailsCoordinator.swift */,
+				F4E97C5A29A378630061E6E3 /* Details Coordinator */,
 			);
 			path = "TabBar Coordinator";
 			sourceTree = "<group>";
@@ -805,6 +794,14 @@
 				F4D3FDCE2989346900C686F8 /* LogoViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F4E97C5A29A378630061E6E3 /* Details Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F4405582297AC127005E8C9E /* DetailsCoordinator.swift */,
+			);
+			path = "Details Coordinator";
 			sourceTree = "<group>";
 		};
 		F4F3221A297FCC1E002059C7 /* Search Module */ = {
@@ -1001,7 +998,6 @@
 			files = (
 				F4FE6D5C296D820800B0A7C7 /* video-player.json in Resources */,
 				F4FE6D5B296D820800B0A7C7 /* logo-animation.json in Resources */,
-				F46B022429719E8D00A40A80 /* CustomToolBar.xib in Resources */,
 				F42789E92993AB4500CA6A1D /* search.json in Resources */,
 				F43B16122983DAF7002D2A1B /* success.json in Resources */,
 				F42EFF84296D9DDD00BF47FF /* Login.storyboard in Resources */,
@@ -1087,6 +1083,7 @@
 				F4FF7E51299A5EE100CCCDBD /* LogoContainer.swift in Sources */,
 				F4F32224297FCF7A002059C7 /* SearchCollectionViewCell.swift in Sources */,
 				F461221129757E70001D3BA3 /* FilmsByGenreViewController.swift in Sources */,
+				F4E97C5C29A37ACC0061E6E3 /* TabBarConfigure.swift in Sources */,
 				F461220629754E3F001D3BA3 /* GenreList.swift in Sources */,
 				F45294092970353700A8EAFF /* HomeViewController.swift in Sources */,
 				F485F9DF299B93A80004C18D /* RepositoryContainer.swift in Sources */,
@@ -1141,7 +1138,6 @@
 				F45293FB2970014500A8EAFF /* GetAccountDetailsModel.swift in Sources */,
 				F45A9DC829719BCC0040B16D /* BaseUIViewComponent.swift in Sources */,
 				F4FF7E53299A5F0D00CCCDBD /* Container.swift in Sources */,
-				F46B022129719E7900A40A80 /* CustomToolBar.swift in Sources */,
 				F49D363E298D3175003F2779 /* DataBaseManager.swift in Sources */,
 				F45A9DBD29717AC10040B16D /* HomeCoordinator.swift in Sources */,
 				F496BB4D298BBD8D000020C4 /* FavoritesViewModel.swift in Sources */,

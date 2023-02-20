@@ -18,6 +18,7 @@ enum MoviesEndpoint: APIConfiguration {
     case searchFilm(page: Int, query: String)
     
     var method: HTTPMethod {
+        
         switch self {
         case .fetchGnres,
                 .moviesByGenre,
@@ -30,6 +31,7 @@ enum MoviesEndpoint: APIConfiguration {
     }
     
     var path: String {
+        
         switch self {
         case .fetchGnres:
             return K.API.baseURL + "/genre/movie/list?api_key=" + K.API.apiKey + "&language=en-US"
@@ -47,6 +49,7 @@ enum MoviesEndpoint: APIConfiguration {
     }
     
     var parameters: Parameters? {
+        
         switch self {
         case .fetchGnres,
                 .moviesByGenre,

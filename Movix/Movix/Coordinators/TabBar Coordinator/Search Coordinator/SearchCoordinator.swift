@@ -18,6 +18,7 @@ class SearchCoordinator: Coordinator {
     }
     
     func start() {
+        
         let vc = SearchViewController.createObject(from: .search)
         vc.coordinator = self
         navigationController.setViewControllerWithAnimation(viewController: vc)

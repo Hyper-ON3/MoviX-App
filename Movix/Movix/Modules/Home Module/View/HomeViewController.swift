@@ -9,12 +9,9 @@ import UIKit
 import Lottie
 import RxDataSources
 import RxSwift
-import RxCocoa
-import RxRelay
-import Network
 
 class HomeViewController: UIViewController, Storyboarded {
-
+    
     @IBOutlet weak var genresCollectionView: UICollectionView!
     @IBOutlet weak var filmsTableView: UITableView!
     @IBOutlet weak var greetingLabel: UILabel!
@@ -23,11 +20,13 @@ class HomeViewController: UIViewController, Storyboarded {
     @IBOutlet weak var noInternetAnimationView: LottieAnimationView!
     
     var coordinator: HomeCoordinator?
-    private let disposeBag = DisposeBag()
     var homeViewModel: HomeViewModelProtocol?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homeViewModel?.showFilms()
         
         bindCollectionView()
         bindTableView()
@@ -39,25 +38,21 @@ class HomeViewController: UIViewController, Storyboarded {
         
         homeViewModel?.checkNetworkStatus(completion: { status in
             if status == true {
-                self.homeViewModel?.getAccountDetails()
+                self.noInternetAnimation(animated: false)
                 self.configureUI()
             } else {
                 self.noInternetAnimation(animated: true)
             }
         })
     }
-
+    
     //MARK: - UI Configuration functions
     
     private func configureUI() {
         
         title = K.Titles.moviesView
-        
-        noInternetAnimationView.isHidden = true
-        self.noInternetLabel.isHidden = true
-                
-        //filmsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-
+ 
+        homeViewModel?.getAccountDetails()
         homeViewModel?.getGenres()
     }
     
@@ -69,14 +64,20 @@ class HomeViewController: UIViewController, Storyboarded {
         
         if animated == true {
             title = K.Titles.favoritesMovie
-            self.noInternetAnimationView.isHidden = false
-            self.filmsTableView.isHidden = true
-            self.categoryLabel.isHidden = true
-            self.noInternetLabel.isHidden = false
+            noInternetAnimationView.isHidden = false
+            filmsTableView.isHidden = true
+            genresCollectionView.isHidden = true
+            categoryLabel.isHidden = true
+            noInternetLabel.isHidden = false
             noInternetAnimationView.play()
         } else {
-            noInternetAnimationView.stop()
             noInternetAnimationView.isHidden = true
+            filmsTableView.isHidden = false
+            genresCollectionView.isHidden = false
+            categoryLabel.isHidden = false
+            noInternetLabel.isHidden = true
+            noInternetAnimationView.stop()
+           
         }
     }
     
@@ -91,22 +92,22 @@ class HomeViewController: UIViewController, Storyboarded {
         object
             .asDriver()
             .drive(genresCollectionView
-            .rx
-            .items(cellIdentifier: K.Identifiers.genreCell,
-                   cellType: GenreCollectionViewCell.self)) { _, genre, cell in
+                .rx
+                .items(cellIdentifier: K.Identifiers.genreCell,
+                       cellType: GenreCollectionViewCell.self)) { _, genre, cell in
                 
-            cell.confugureElements(with: genre)
-
-        }.disposed(by: disposeBag)
+                cell.confugureElements(with: genre)
+                
+            }.disposed(by: disposeBag)
         
         // Notifies which object in has been selected in the CollectionView
         genresCollectionView.rx.modelSelected(GenreList.self)
             .asDriver()
             .drive(onNext: { [weak self] genre in
-            guard let self else { return }
-            
+                guard let self else { return }
+                
                 self.coordinator?.goToFilmsByGenre(with: genre)
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
     
     private func bindUserDetails() {
@@ -117,19 +118,17 @@ class HomeViewController: UIViewController, Storyboarded {
         object
             .asDriver()
             .drive(onNext: { [weak self] data in
-            guard let self else { return }
-            
-            self.greetingLabel.text = "Hello, \(data.username) 😊"
-        }).disposed(by: disposeBag)
+                guard let self else { return }
+                
+                self.greetingLabel.text = "Hello, \(data.username) 😊"
+            }).disposed(by: disposeBag)
     }
     
     private func bindTableView() {
         
         let object = homeViewModel?.filmsArray
         guard let object else { return }
-        
-        homeViewModel?.showFilms()
-
+    
         object
             .asDriver()
             .drive(filmsTableView.rx.items(dataSource: dataSourse()))
@@ -145,6 +144,7 @@ class HomeViewController: UIViewController, Storyboarded {
 }
 
 //MARK: - Extensions
+
 extension HomeViewController {
     
     func dataSourse() -> RxTableViewSectionedReloadDataSource<FilmsCategory> {
@@ -170,10 +170,10 @@ extension HomeViewController {
             cell.filmsCollectionView.rx.modelSelected(FilmsCategoryModel.self)
                 .asDriver()
                 .drive(onNext: { [weak self] info in
-                guard let self else { return }
-                
+                    guard let self else { return }
+                    
                     self.coordinator?.goToDetails(with: info.id)
-            }).disposed(by: cell.disposeBag)
+                }).disposed(by: cell.disposeBag)
             
             return cell
             

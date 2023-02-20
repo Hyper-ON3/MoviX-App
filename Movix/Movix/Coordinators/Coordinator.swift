@@ -16,10 +16,6 @@ protocol Coordinator: AnyObject {
     func childDidFinish(_ child: Coordinator?)
 }
 
-enum CoordinatorType {
-    case app, login, main
-}
-
 extension Coordinator {
 
     func childDidFinish(_ child: Coordinator?) {

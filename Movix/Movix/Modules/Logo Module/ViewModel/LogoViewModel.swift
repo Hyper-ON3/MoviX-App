@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 protocol LogoViewModelProtocol: AnyObject {
     
@@ -16,7 +14,6 @@ protocol LogoViewModelProtocol: AnyObject {
 
 class LogoViewModel: LogoViewModelProtocol {
     
-    private let disposeBag = DisposeBag()
     private var networkCheck = NetworkCheck.sharedInstance()
     
     // Сhecking whether the user is logged in

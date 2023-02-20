@@ -7,8 +7,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
-import RxDataSources
 import Lottie
 
 class FavoritesViewController: UIViewController, Storyboarded {
@@ -73,7 +71,7 @@ class FavoritesViewController: UIViewController, Storyboarded {
     
     //MARK: - UI Bindings
     
-    func bindTableView() {
+    private func bindTableView() {
         
         isFavoritesEmpty(animate: true)
         

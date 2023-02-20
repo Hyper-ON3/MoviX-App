@@ -9,7 +9,7 @@ import UIKit
 import Lottie
 
 class LoginViewController: UIViewController, Storyboarded {
- 
+    
     @IBOutlet weak var appNameLabel: UILabel!
     @IBOutlet weak var emailBackgroundView: UIView!
     @IBOutlet weak var passwordBackgroundView: UIView!
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, Storyboarded {
         configureUI()
     }
     
-    //MARK: - UI Configuration functions
+//MARK: - UI Configuration functions
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -47,17 +47,23 @@ class LoginViewController: UIViewController, Storyboarded {
         
         loginButton.layer.cornerRadius = 15
         
-        loginTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        
         let gradient = GradientText.getGradientLayer(bounds: appNameLabel.bounds)
         appNameLabel.textColor = GradientText.gradientColor(bounds: appNameLabel.bounds, gradientLayer: gradient)
         
+        addTargetToTextFields()
+        
+    }
+    
+    private func addTargetToTextFields() {
+        loginTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     @objc func textFieldDidChange( _ textField: UITextField) {
         self.loginViewModel?.getUserData(with: LoginModel(login: loginTextField.text ?? "", password: passwordTextField.text ?? ""))
     }
+    
+    //MARK: - Animation functions
     
     // Loading animation for the Login Button
     private func loadingAnimation(animate: Bool) {
@@ -99,7 +105,8 @@ class LoginViewController: UIViewController, Storyboarded {
         }
     }
     
-    //MARK: - IBActions
+//MARK: - IBActions
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         loadingAnimation(animate: true)

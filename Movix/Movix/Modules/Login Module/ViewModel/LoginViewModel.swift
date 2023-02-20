@@ -55,7 +55,7 @@ class LoginViewModel: LoginViewModelProtocol {
     private func saveDataToKeychain(_ save: Bool) {
         
         guard let userData else { return }
-    
+        
         if save == true {
             KeychainManager.save(key: .login, data: userData.login)
             KeychainManager.save(key: .password, data: userData.password)

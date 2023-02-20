@@ -16,6 +16,7 @@ enum MoviesListEndpoint: APIConfiguration {
     case removeMovie(id: Int)
     
     var method: HTTPMethod {
+        
         switch self {
         case .addFilmToList, .removeMovie:
             return .post
@@ -25,6 +26,7 @@ enum MoviesListEndpoint: APIConfiguration {
     }
     
     var path: String {
+        
         switch self {
         case .checkItemStatus(let movieId):
             return "\(K.API.baseURL)/list/\(K.Keys.listId)/item_status?api_key=\(K.API.apiKey)&movie_id=\(movieId)"
@@ -38,6 +40,7 @@ enum MoviesListEndpoint: APIConfiguration {
     }
     
     var parameters: Parameters? {
+        
         switch self {
         case .addFilmToList(let id):
             return ["media_id": id]

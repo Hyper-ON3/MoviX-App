@@ -18,6 +18,7 @@ class HomeCoordinator: Coordinator {
     }
     
     func start() {
+        
         let vc = HomeViewController.createObject(from: .genres)
         vc.coordinator = self
         navigationController.setViewControllerWithAnimation(viewController: vc)
