@@ -4,7 +4,7 @@ MoviX is a mobile application created using Swift that utilizes the MVVM + Coord
 # Features
 Movie search: Users can search for movies by title or keywords, and the app will display the relevant results.
 Top-rated and newly released movies: Users can browse through a list of top-rated and newly released movies.
-Movie details: The app displays movie details such as a brief description, release date, rating, and cast. Users can also watch trailers of the movie.
+Movie details: The app displays movie details such as a brief description, status, rating, and trailer. Users can also watch trailers of the movie.
 Favorites: Users can save movies to their favorites list and access them easily.
 # Technology Stack
 The following technologies were used to build the MoviX App:
@@ -21,7 +21,7 @@ Open the MoviX.xcodeproj file in Xcode.
 Install the third-party libraries using CocoaPods.
 Build and run the app on a simulator or a physical device.
 # Usage
-Upon launching the app, users are presented with the home screen, which includes a search bar, a list of top-rated and newly released movies, and a button to access the favorites list. Users can search for movies by entering a title or keywords in the search bar. The app will display the relevant results, including the movie title, poster, rating, and release year. Users can tap on a movie to view its details, including the description, cast, and trailer. They can also add the movie to their favorites list by tapping on the heart icon.
+After launching the application, users are presented with the main screen, which includes a horizontal list of genres, a list of now playing movies, popular, top rating, upcoming movies. Tab bar with buttons for quick access to the search screen and the screen of favorite movies. Users can search for movies by entering the title or keywords in the search bar. The application will display the relevant results. Users can click on a movie to view its details, including description, status, rating, and trailer. They can also add a movie to their favorites list by clicking on the appropriate button.
 
 # Credits
 The app uses the The Movie Database (TMDb) API to fetch movie data. The app also uses various third-party libraries such as Alamofire, SDWebImage, Realm, RxSwift, and Lottie.
